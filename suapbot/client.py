@@ -22,7 +22,7 @@ class Bot(Client):
         await super().start()
         print("START")
         try:
-            path = os.listdir("./plugins")
+            path = os.listdir("suapbot/plugins")
             for p in path:
                 if p.endswith(".py"):
                     arq = p.replace(".py", "")
