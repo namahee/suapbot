@@ -16,7 +16,7 @@ class Wait(Base):
 	id = Column(Integer, primary_key=True)
 	_for = Column(String)
 	
-engine = create_engine("postgresql://postgres:siiKAcHQoCfSHoXyvadPYvZiVFlDBhyF@postgres.railway.internal:5432/railway")
+engine = create_engine("postgresql://postgres:siiKAcHQoCfSHoXyvadPYvZiVFlDBhyF@junction.proxy.rlwy.net:48277/railway")
 Base.metadata.create_all(engine)  
 
 
