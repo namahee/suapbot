@@ -42,7 +42,7 @@ async def boletim(_, message: Message):
     	return await message.reply(help_text, quote=True, reply_markup=reply_markup)
     else:
     	return await message.reply("`Você não possui um login. Utilize o comando /login para criar.`")
-b.on_callback_query()
+@b.on_callback_query()
 async def(_, c_q: CallbackQuery):
 	c_q.answer("Vou cagar")
 @b.on_message(filters.private)
