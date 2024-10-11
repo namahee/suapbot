@@ -6,7 +6,7 @@ import importlib
 class Config:
     API_ID = int(3716600)# int(os.environ.get("API_ID"))
     API_HASH = str("0ed423ceea4fbb06c0e627d9db0f4a6b")# str(os.environ.get("API_HASH"))
-    BOT_TOKEN = str("2023772023:AAELvE7PzeD2hggebtCuN0HM5FWhV9WbXgs")# str(os.environ.get("BOT_TOKEN"))
+    BOT_TOKEN = str("7564997869:AAG8EvLYfSe2DgUN8Tuk1rARmYiX9VC27v0")# str(os.environ.get("BOT_TOKEN"))
 
 class Bot(Client):
     def __init__(self):
