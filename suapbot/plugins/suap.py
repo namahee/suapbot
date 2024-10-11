@@ -5,7 +5,6 @@ from pyrogram.types import Message
 from .sql.sql import *
 from suapbot import _login, get_disciplinas, _notas, cmd
 from client import b
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 
 @b.on_message(cmd("login"))
 async def login(_, message: Message):
@@ -24,15 +23,6 @@ async def logout(_, message: Message):
 	else:
 		await message.reply("`Você não possui um login.`")
 		
-@b.on_message(cmd("boletim"))
-async def boletim(_, message: Message):
-    keyboard = [
-        [
-            InlineKeyboardButton("Quero cagar", callback_data='option1'),
-        ]
-    ]
-    
-    reply_markup = InlineKeyboardMarkup(keyboard)
     remove_wait(message.from_user.id)
     if get_login(message.from_user.id):
     	username, senha = get_login(message.from_user.id)
@@ -42,9 +32,7 @@ async def boletim(_, message: Message):
     	return await message.reply(help_text, quote=True, reply_markup=reply_markup)
     else:
     	return await message.reply("`Você não possui um login. Utilize o comando /login para criar.`")
-@b.on_callback_query()
-async def(_, c_q: CallbackQuery):
-	c_q.answer("Vou cagar")
+
 @b.on_message(filters.private)
 async def pera(_, message: Message):
 	if get_wait(message.from_user.id):
