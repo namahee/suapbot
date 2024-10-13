@@ -22,7 +22,7 @@ class Disc(Base):
 	id = Column(Integer, primary_key=True)
 	sorted = Column(String)
 
-engine = create_engine("sqlite:///")
+engine = create_engine("postgresql://postgres:siiKAcHQoCfSHoXyvadPYvZiVFlDBhyF@junction.proxy.rlwy.net:48277/railway")
 Base.metadata.create_all(engine)  
 
 
