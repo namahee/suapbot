@@ -8,7 +8,8 @@ from client import b
 
 @b.on_message(cmd("login"))
 async def login(_, message: Message):
-	remove_wait(str(message.from_user.id))
+	if get_wait(str(message.from_user.id)):
+		remove_wait(str(message.from_user.id))
 	if get_login(str(message.from_user.id)):
 		await message.reply("`Você já possui um login.`")
 	else:
@@ -25,7 +26,8 @@ async def logout(_, message: Message):
 		
 @b.on_message(cmd("boletim"))
 async def boletim(_, message: Message):
-    remove_wait(str(message.from_user.id))
+    if get_wait(str(message.from_user.id)):
+	    remove_wait(str(message.from_user.id))
     if get_login(str(message.from_user.id)):
     	username, senha = get_login(str(message.from_user.id))
     	if get_disc(str(message.from_user.id)):
