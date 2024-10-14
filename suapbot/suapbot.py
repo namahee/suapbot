@@ -42,8 +42,8 @@ def discs(id, response):
 	   	sorted_disciplina += f"{index}. {disciplina}\n"
 	   disc_str = ' '.join(str(item) for item in disc)
 	   disciplinas_str = ', '.join(disciplinas)
-	   if not get_disc(id):
-	   	add_disc(id, sorted_disciplina)
+	   if not get_disc(str(id)):
+	   	add_disc(str(id), sorted_disciplina)
 	   else:
 	   	return sorted_disciplina, disc, disciplinas
 	   	
