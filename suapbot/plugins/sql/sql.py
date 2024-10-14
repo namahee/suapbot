@@ -36,7 +36,7 @@ def add_disc(id, sorted):
 	
 def get_disc(id):
 	if session.query(Disc).filter_by(id=id).first():
-		sorted = session.query(Disc).filter_by(id=id).first().sorted
+		sorted = session.query(Disc).filter_by(id=str(id)).first().sorted
 		return sorted
 	return None
 	
@@ -46,14 +46,14 @@ def add_login(id, username, password):
 	session.commit()
 	
 def remove_login(id):
-	_id = session.query(Login).filter(Login.id==id).first()
+	_id = session.query(Login).filter(Login.id==str(id)).first()
 	if _id:
 		session.delete(_id)
 		session.commit()
 	
 def get_login(id):
 	if session.query(Login).filter_by(id=id).first() is not None:
-		return session.query(Login).filter_by(id=id).first().usuario, session.query(Login).filter_by(id=id).first().senha
+		return session.query(Login).filter_by(id=str(id)).first().usuario, session.query(Login).filter_by(id=id).first().senha
 	return None
 		
 def add_wait(id, _for):
@@ -62,7 +62,7 @@ def add_wait(id, _for):
 	session.commit()
 
 def remove_wait(id):
-	_id = session.query(Wait).filter(Wait.id==id).first()
+	_id = session.query(Wait).filter(Wait.id==str(id)).first()
 	if _id:
 		session.delete(_id)
 		session.commit()
