@@ -8,9 +8,9 @@ from client import b
 
 @b.on_message(cmd("login"))
 async def login(_, message: Message):
-	if get_wait(str(message.from_user.id)):
-		remove_wait(str(message.from_user.id))
-	if get_login(str(message.from_user.id)):
+	if get_wait(message.from_user.id):
+		remove_wait(message.from_user.id)
+	if get_login(message.from_user.id):
 		await message.reply("`Você já possui um login.`")
 	else:
 		await message.reply("`Digite seu usuário e senha dessa forma:\n\n[usuário] [senha]`")
