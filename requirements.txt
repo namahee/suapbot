@@ -4,5 +4,3 @@ requests
 bs4
 sqlalchemy
 psycopg2-binary
-mysql-connector-python
-mysqlclient
