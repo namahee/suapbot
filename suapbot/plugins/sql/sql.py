@@ -22,7 +22,7 @@ class Disc(Base):
 	id = Column(BigInteger, primary_key=True)
 	sorted = Column(String)
 
-engine = create_engine("mongodb://mongo:SbRJiUGwLPqaldavxpjxNFMokwhPKGoa@junction.proxy.rlwy.net:41587")#engine = create_engine("mysq+mysqldb://root:DdHrDsTFSiNrxcfwPDVcUqNIkAKUSMrk@autorack.proxy.rlwy.net:35945/railway")#engine = create_engine("postgresql://postgres:siiKAcHQoCfSHoXyvadPYvZiVFlDBhyF@junction.proxy.rlwy.net:48277/railway")
+engine = create_engine("sqlite3-production-b20a.up.railway.app")#engine = create_engine("mysq+mysqldb://root:DdHrDsTFSiNrxcfwPDVcUqNIkAKUSMrk@autorack.proxy.rlwy.net:35945/railway")#engine = create_engine("postgresql://postgres:siiKAcHQoCfSHoXyvadPYvZiVFlDBhyF@junction.proxy.rlwy.net:48277/railway")
 Base.metadata.create_all(engine)  
 
 
