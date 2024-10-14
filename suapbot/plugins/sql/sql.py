@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, Column, Integer, String
+from sqlalchemy import create_engine, Column, Integer, String, BigIntenger
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
@@ -6,20 +6,20 @@ Base = declarative_base()
 class Login(Base):
     __tablename__ = 'login'
 
-    id = Column(Integer, primary_key=True)
+    id = Column(BigInteger, primary_key=True)
     usuario = Column(String)
     senha = Column(String)
 
 class Wait(Base):
 	__tablename__ = "waiting"
 	
-	id = Column(Integer, primary_key=True)
+	id = Column(BigInteger, primary_key=True)
 	_for = Column(String)
 	
 class Disc(Base):
 	__tablename__ = "disciplinas"
 	
-	id = Column(Integer, primary_key=True)
+	id = Column(BigInteger, primary_key=True)
 	sorted = Column(String)
 
 engine = create_engine("postgresql://postgres:siiKAcHQoCfSHoXyvadPYvZiVFlDBhyF@junction.proxy.rlwy.net:48277/railway")
