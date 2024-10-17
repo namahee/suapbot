@@ -22,7 +22,7 @@ class Disc(Base):
 	id = Column(Numeric, primary_key=True)
 	sorted = Column(String)
 
-engine = create_engine("postgresql://postgres:arGwdiUhdqEJNFZVSmsKmpfVBxYShWAx@junction.proxy.rlwy.net:49151/railway")
+engine = create_engine("postgresql+psycopg2://postgres:arGwdiUhdqEJNFZVSmsKmpfVBxYShWAx@junction.proxy.rlwy.net:49151/railway")
 Base.metadata.create_all(engine)  
 
 
