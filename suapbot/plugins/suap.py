@@ -8,7 +8,6 @@ from client import b
 
 @b.on_message(cmd("login"))
 async def login(_, message: Message):
-	await message.reply(str(message))
 	if get_wait(message.from_user.id):
 		remove_wait(message.from_user.id)
 	if get_login(message.from_user.id):
