@@ -39,7 +39,13 @@ def get_disc(id):
 		sorted = session.query(Disc).filter_by(id=id).first().sorted
 		return sorted
 	return None
-	
+
+def remove_disc(id):
+	_id = session.query(Disc).filter(Disc.id==id).first()
+	if _id:
+		session.delete(_id)
+		session.commit()
+		
 def add_login(id, username, password):
 	user = Login(id=id, usuario=username, senha=password)
 	session.add(user)
