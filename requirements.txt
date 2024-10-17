@@ -3,6 +3,4 @@ tgcrypto
 requests
 bs4
 sqlalchemy
-psycopg2-binary
-mongoengine
-pymongo
+psycopg2
