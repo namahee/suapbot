@@ -39,7 +39,7 @@ def discs(id, response):
 	   	k = i.text.split("-")[1]
 	   	disciplinas.append(k)
 	   for index, disciplina in enumerate(disciplinas, start=1):
-	   	sorted_disciplina += f"{index}. {disciplina}\n"
+	   	sorted_disciplina += f"{index}. {disciplina.strip()}\n"
 	   disc_str = ' '.join(str(item) for item in disc)
 	   disciplinas_str = ', '.join(disciplinas)
 	   if not get_disc(str(id)):
