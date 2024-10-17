@@ -21,6 +21,7 @@ async def login(_, message: Message):
 async def logout(_, message: Message):
 	if get_login(message.from_user.id):
 		remove_login(message.from_user.id)
+		remove_disc(message.from_user.id)
 		await message.reply("`Logout efetuado!`")
 	else:
 		await message.reply("`Você não possui um login.`")
