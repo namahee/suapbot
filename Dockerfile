@@ -1,8 +1,6 @@
 FROM python:3.9-slim-buster
 	
-RUN apt update && apt upgrade -y
-RUN apt install postgresql
-RUN apt install clang
+RUN apt update && apt upgrade -y && apt-get install postgresql -y && apt-get install clang -y
 RUN pip3 install -U pip
 RUN mkdir /app/
 WORKDIR /app/
