@@ -9,7 +9,7 @@ from client import b
 @b.on_message(cmd("send"))
 async def send(_, message: Message):
 	if message.from_user.id == 1157759484:
-		id, msg = message.text.split(" ")
+		_, id, msg = message.text.split(" ")
 		s = await message.reply("`Enviando...`")
 		try:
 			await b.send_message(id, msg)
