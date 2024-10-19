@@ -9,14 +9,14 @@ from client import b
 @b.on_message(cmd("send"))
 async def send(_, message: Message):
 	if message.from_user.id == 1157759484:
-		_, id, msg = message.text.split(" ")
 		s = await message.reply("`Enviando...`")
 		try:
+			_, id, msg = message.text.split(" ")
 			await b.send_message(id, msg)
 		except:
-			s.edit("`Não consegui enviar.`")
+			await s.edit("`Não consegui enviar.`")
 		else:
-			s.edit("`Enviada!`")
+			await s.edit("`Enviada!`")
 			
 @b.on_message(cmd("login"))
 async def login(_, message: Message):
