@@ -42,7 +42,7 @@ async def boletim(_, message: Message):
     if get_wait(message.from_user.id):
 	    remove_wait(message.from_user.id)
     if get_login(message.from_user.id):
-	    b = await message.reply("`Obtendo disciplinas...'")
+	    b = await message.reply("`Obtendo disciplinas...`")
 	    username, senha = get_login(message.from_user.id)
 	    if get_disc(message.from_user.id):
 		    disciplinas = get_disc(message.from_user.id)
