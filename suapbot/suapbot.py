@@ -134,7 +134,7 @@ def _notas(disciplina_escolhida, disciplinas):
 	   			print(n1,n2,n3,n4)
 	   			if n3 == None and n4 == None:
 	   				boletim = f"""
-`Disciplina: {disciplina_escolhida}
+`Disciplina: {disciplina_escolhida.strip()}
 	   			
 Situação: {status}
 Total de aulas: {total_aulas}
@@ -151,7 +151,7 @@ Nota: {n2}
 Faltas: {f2}`"""
 	   			else:
 	   				boletim = f"""
-`Disciplina: {disciplina_escolhida}
+`Disciplina: {disciplina_escolhida.strip()}
 	   			
 Situação: {status}
 Total de aulas: {total_aulas}
