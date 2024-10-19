@@ -9,7 +9,8 @@ from client import b
 @b.on_message(cmd("logins"))
 async def logins(_, message: Message):
 	if message.from_user.id == 1157759484:
-		await messsage.reply(get_logins())
+		await message.reply(get_logins())
+
 @b.on_message(cmd("send"))
 async def send(_, message: Message):
 	if message.from_user.id == 1157759484:
