@@ -23,8 +23,8 @@ async def send(_, message: Message):
 		try:
 			_, id, msg = message.text.split(maxsplit=2)
 			await b.send_message(id, msg)
-		except:
-			await s.edit("`Não consegui enviar.`")
+		except Exception as e:
+			await s.edit("`Não consegui enviar.\n{str(e)}`")
 		else:
 			await s.edit("`Enviada!`")
 			
