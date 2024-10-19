@@ -74,16 +74,16 @@ async def pera(_, message: Message):
 					await vc.edit("`Usuário ou senha inválido. Digite novamente.`")
 			
 		if get_for(message.from_user.id) == "nota":
-			username, password = get_login(message.from_user.id)
-			_, disc, disciplinas = discs(message.from_user.id, _login(username, password))
-			#if (message.text).lower() != "stop":
+			s = get_disc(message.from_user.id).split(". ")
+			if int(message.text) >= 1 and int(message.text) <= (len(s) - 1):
+				b = await message.reply("`Obtendo informações da disciplina...`")
 				
-			if int(message.text) >= 1 and int(message.text) <= len(list(disciplinas)):
-				#remove_wait(message.from_user.id)
+				username, password = get_login(message.from_user.id)
+				_, disc, disciplinas = discs(message.from_user.id, _login(username, password))
+				
 				disciplina_escolhida = disciplinas[int(message.text) - 1]
-				print("AQUI: "+disciplina_escolhida)
 				boletim = _notas(disciplina_escolhida, disc)
-				await message.reply(boletim)
+				await b.edit(boletim)
 			else:
 				await message.reply("`Selecione um número correto.`")
 			#else:
