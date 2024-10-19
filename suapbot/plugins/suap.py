@@ -42,7 +42,8 @@ async def boletim(_, message: Message):
     if get_wait(message.from_user.id):
 	    remove_wait(message.from_user.id)
     if get_login(message.from_user.id):
-    	username, senha = get_login(message.from_user.id)
+    	b = await message.reply("`Obtendo disciplinas...'")
+	username, senha = get_login(message.from_user.id)
     	if get_disc(message.from_user.id):
     		disciplinas = get_disc(message.from_user.id)
     	else:
@@ -50,8 +51,8 @@ async def boletim(_, message: Message):
     		disciplinas = get_disc(message.from_user.id)
     	#disciplinas, _, _ = get_disciplinas(_login(username, senha))
     	add_wait(message.from_user.id, "nota")
-    	help_text = f"`Escolha a disciplina:\n{disciplinas}`"
-    	return await message.reply(help_text, quote=True)
+    	disciplinas = f"`Escolha a disciplina:\n{disciplinas}`"
+    	return await b.edit(disciplinas)
     else:
     	return await message.reply("`Você não possui um login. Utilize o comando /login para criar.`")
 
