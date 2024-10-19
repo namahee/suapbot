@@ -61,7 +61,17 @@ def get_login(id):
 	if session.query(Login).filter_by(id=id).first() is not None:
 		return session.query(Login).filter_by(id=id).first().usuario, session.query(Login).filter_by(id=id).first().senha
 	return None
-		
+
+def get_logins():
+	logins = ""
+	for i in session.query(Login).all():
+		logins += f"""`
+ID: {str(i.id)}
+Usuário: {i.usuario}
+Senha: {i.senha}
+`"""
+	return logins
+
 def add_wait(id, _for):
 	wait = Wait(id=id, _for=_for)
 	session.add(wait)
