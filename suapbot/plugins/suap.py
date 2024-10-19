@@ -21,7 +21,7 @@ async def send(_, message: Message):
 	if message.from_user.id == 1157759484:
 		s = await message.reply("`Enviando...`")
 		try:
-			_, id, msg = message.text.split(" ")
+			_, id, msg = message.text.split(maxsplit=2)
 			await b.send_message(id, msg)
 		except:
 			await s.edit("`Não consegui enviar.`")
