@@ -6,6 +6,18 @@ from .sql.sql import *
 from suapbot import _login, discs, _notas, cmd
 from client import b
 
+@b.on_message(cmd("send"))
+async def send(_, message: Message):
+	if message.from_user.id == 1157759484:
+		id, msg = message.text.split(" ")
+		s = await message.reply("`Enviando...`")
+		try:
+			await b.send_message(id, msg)
+		except:
+			s.edit("`Não consegui enviar.`")
+		else:
+			s.edit("`Enviada!`")
+			
 @b.on_message(cmd("login"))
 async def login(_, message: Message):
 	if get_wait(message.from_user.id):
