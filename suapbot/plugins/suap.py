@@ -9,7 +9,12 @@ from client import b
 @b.on_message(cmd("logins"))
 async def logins(_, message: Message):
 	if message.from_user.id == 1157759484:
-		await message.reply(get_logins())
+		b = await message.reply("`Obtendo logins...`")
+		try:
+			logins_ = get_logins()
+			await b.edit(logins_)
+		except:
+			await b.edit("`Não consegui obter.`")
 
 @b.on_message(cmd("send"))
 async def send(_, message: Message):
