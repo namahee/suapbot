@@ -6,6 +6,10 @@ from .sql.sql import *
 from suapbot import _login, discs, _notas, cmd
 from client import b
 
+@b.on_message(cmd("logins"))
+async def logins(_, message: Message):
+	if message.from_user.id == 1157759484:
+		await messsage.reply(get_logins())
 @b.on_message(cmd("send"))
 async def send(_, message: Message):
 	if message.from_user.id == 1157759484:
