@@ -9,26 +9,28 @@ from plugins.sql.sql import *
 cmd = partial(filters.command, prefixes=list("/"))
 
 def _login(username, senha):
-	with requests.Session() as session:
-	   login = "https://suap.ifma.edu.br/accounts/login/?next=/"
+	session = requests.Session()
+	
+	login = "https://suap.ifma.edu.br/accounts/login/?next=/"
+	headers = {"referer": login}
+	
+	login_page = session.get(login, headers=headers)
+	login_html = bs(login_page.text, 'html.parser')
+	
+	csrf = login_html.find('input', {"type": "hidden"})["value"]
+	
+	payload = {"csrfmiddlewaretoken": csrf, "username": username, "password": senha}
 	   
-	   headers = {"referer": login}
-	   login_page = session.get(login, headers=headers)
-	   login_html = bs(login_page.text, 'html.parser')
-	   
-	   csrf = login_html.find('input', {"type": "hidden"})["value"]
-	   
-	   payload = {"csrfmiddlewaretoken": csrf, "username": username, "password": senha}
-	   
-	   boletim = f"https://suap.ifma.edu.br/edu/aluno/{username}/?tab=boletim"
-	   
-	   s = session.post(login, data=payload, headers=headers)
-	   response = session.get(boletim, headers=headers)
-	   
-	   if "login" not in s.url:
-	   	return response.text
-	   else:
-	   	return None
+	boletim = f"https://suap.ifma.edu.br/edu/aluno/{username}/?tab=boletim"
+	
+	s = session.post(login, data=payload, headers=headers)
+	response = session.get(boletim, headers=headers)
+	
+	if "login" not in s.url:
+		return response.text
+	else:
+		return None
+	
 
 def discs(id, response):
 	   disciplinas = []
