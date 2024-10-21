@@ -64,7 +64,7 @@ async def boletim(_, message: Message):
 		add_wait(message.from_user.id, "nota")
 		disciplinas_ = f"`Escolha a disciplina:\n{disciplinas}`"
 		await b.edit(disciplinas_)
-		_, disc, disciplinas = discs(message.from_user.id, _login(username, senha)
+		_, disc, disciplinas = discs(message.from_user.id, _login(username, senha))
 	else:
 		await message.reply("`Você não possui um login. Utilize o comando /login para criar.`")
 
