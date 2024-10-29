@@ -65,7 +65,7 @@ def _notas(disciplina_escolhida, disciplinas):
 	   			f3 = nota.parent.find("td", {"headers": "th_n3f"}).text if nota.parent.find("td", {"headers": "th_n3f"}) else None
 	   			f4 = nota.parent.find("td", {"headers": "th_n4f"}).text if nota.parent.find("td", {"headers": "th_n3f"}) else None
 	   			freq = nota.parent.find("td", {"headers": "th_frequencia"}).text
-	   			
+	   			md = nota.parent.find("td", {"headers": "th_mfd"}).text
 	   			if nota.parent.find("td", {"headers": "th_n1n"}):
 	   				if nota.parent.find("td", {"headers": "th_nr1"}):
 	   					if nota.parent.find("td", {"headers": "th_nr1"}).text:
@@ -149,7 +149,9 @@ Faltas: {f1}
 	   			
 2° bimestre
 Nota: {n2}
-Faltas: {f2}`"""
+Faltas: {f2}
+
+Média final: {md}`"""
 	   			else:
 	   				boletim = f"""
 `Disciplina: {disciplina_escolhida.strip()}
@@ -174,7 +176,9 @@ Faltas: {f3}
 	   			
 4° bimestre
 Nota: {n4}
-Faltas: {f4}`"""
+Faltas: {f4}
+
+Média final: {md}`"""
 	   			print(f"AQUI: {boletim}")
 	   			return boletim
 	   			
