@@ -63,8 +63,7 @@ async def boletim(_, message: Message):
 			disciplinas = get_disc(message.from_user.id)
 		add_wait(message.from_user.id, "nota")
 		disciplinas_ = f"`Escolha a disciplina:\n{disciplinas}`"
-		await b.edit(disciplinas_)
-		_, disc, disciplinas = discs(message.from_user.id, _login(username, senha))
+		await b.edit(disciplinas_)¾
 	else:
 		await message.reply("`Você não possui um login. Utilize o comando /login para criar.`")
 
@@ -92,8 +91,8 @@ async def pera(_, message: Message):
 			if int(message.text) >= 1 and int(message.text) <= (len(s) - 1):
 				b = await message.reply("`Obtendo informações da disciplina...`")
 				
-				username, password = get_login(message.from_user.id)
-				
+				username, senha = get_login(message.from_user.id)
+				_, disc, disciplinas = discs(message.from_user.id, _login(username, senha))
 				disciplina_escolhida = disciplinas[int(message.text) - 1]
 				boletim = _notas(disciplina_escolhida, disc)
 				await b.edit(boletim)
