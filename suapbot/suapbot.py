@@ -132,11 +132,8 @@ def _notas(disciplina_escolhida, disciplinas):
                     n2 = 0 if n2 == "nota não lançada" else n2
                     n1 = n1.replace(",", ".")
                     n2 = n2.replace(",", ".")
-<<<<<<< HEAD
                     an = (float(n1) + float(n2))
-=======
                     an = (float(n1) + n2)
->>>>>>> c8b550f29c8ff813618e7552e5bfbc0ac31df14e
                     ps = round(14 - an, 2)
                     approved = "Você já foi aprovado na disciplina" if an >= 14 else f"Faltam {ps} pontos para você ser aprovado!"
                     boletim = f"""
@@ -161,11 +158,9 @@ Média final: {md}
                 else:
                     n4 = 0 if n4 == "nota não lançada" else n4
                     n1, n2, n3, n4 = n1.replace(",", "."), n2.replace(",", "."), n3.replace(",", "."), n4.replace(",", ".")
-<<<<<<< HEAD
+
                     an = (float(n1) + float(n2) + float(n3) + float(n4))
-=======
                     an = (float(n1) + float(n2) + float(n3) + n4)
->>>>>>> c8b550f29c8ff813618e7552e5bfbc0ac31df14e
                     ps = round(28 - an, 2)
                     approved = "Você já foi aprovado na disciplina" if an >= 28 else f"Faltam {ps} pontos para você ser aprovado!"
                     boletim = f"""
