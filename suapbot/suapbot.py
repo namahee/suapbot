@@ -130,9 +130,7 @@ def _notas(disciplina_escolhida, disciplinas):
 	   			else:
 	   				n4 = None
 	   			if n3 == None and n4 == None:
-					if n2 = "nota não lançada":
-						approved = "passou seu porra" if (n1 = n2) >= 14 else "vai tomar no teu cu"
-	   				boletim = f"""
+					boletim = f"""
 `Disciplina: {disciplina_escolhida.strip()}
 	   			
 Situação: {status}
