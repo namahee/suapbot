@@ -2,9 +2,11 @@ import requests
 from bs4 import BeautifulSoup as bs
 
 from functools import partial, wraps
+from pyrogram import filters
 
 from plugins.sql.sql import *
 
+cmd = partial(filters.command, prefixes=list("/"))
 
 def _login(username, senha):
 	with requests.Session() as session:
