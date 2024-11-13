@@ -52,7 +52,6 @@ def discs(id, response):
 def _notas(disciplina_escolhida, disciplinas):
 	for nota in disciplinas:
 		for i in nota:
-	   		print("49 FOI")
 	   		if disciplina_escolhida in i:
 	   			print("51 FOI")
 	   			status = nota.parent.find("td", {"headers": "th_situacao"}).text
@@ -132,12 +131,8 @@ def _notas(disciplina_escolhida, disciplinas):
 	   			else:
 	   				n4 = None
 	   			if n3 == None and n4 == None:
-					if n2 == "nota não lançada" or n2 == None:
-						n2 = 0
-						if (n1 + n2) >= 14:
-							approved = "Você já está aprovado na disciplina!"
-						else:
-							approved = f"Faltam **{14 - (n1 + n2)}** pontos pra você ser aprovado!"
+					if n2 == "nota não lançada":
+						approved = "passou seu porra" if (n1 = n2) >= 14 else "vai tomar no teu cu"
 	   				boletim = f"""
 `Disciplina: {disciplina_escolhida.strip()}
 	   			
