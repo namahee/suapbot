@@ -51,7 +51,6 @@ def discs(id, response):
 	   
 def _notas(disciplina_escolhida, disciplinas):
 	for nota in disciplinas:
-		print("INFERNO")
 		for i in nota:
 	   		print("49 FOI")
 	   		if disciplina_escolhida in i:
@@ -132,8 +131,7 @@ def _notas(disciplina_escolhida, disciplinas):
 	   						n4 = nota.parent.find("td", {"headers": "th_n4n"}).text
 	   			else:
 	   				n4 = None
-	   			print(n1,n2,n3,n4)
-				if n3 == None and n4 == None:
+	   			if n3 == None and n4 == None:
 					if n2 == "nota não lançada" or n2 == None:
 						n2 = 0
 						if (n1 + n2) >= 14:
