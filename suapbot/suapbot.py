@@ -39,12 +39,12 @@ def discs(id, response):
     for i in disc:
         k = i.text.split("-")[1]
         disciplinas.append(k)
-        for index, disciplina in enumerate(disciplinas, start=1):
-            sorted_disciplina += f"{index}. {disciplina.strip()}\n"
-        if not get_disc(str(id)):
-            add_disc(str(id), sorted_disciplina)
-        else:
-            return sorted_disciplina, disc, disciplinas
+    for index, disciplina in enumerate(disciplinas, start=1):
+        sorted_disciplina += f"{index}. {disciplina.strip()}\n"
+    if not get_disc(str(id)):
+        add_disc(str(id), sorted_disciplina)
+    else:
+        return sorted_disciplina, disc, disciplinas
 	   	
 	   
 def _notas(disciplina_escolhida, disciplinas):
