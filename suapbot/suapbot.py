@@ -131,7 +131,7 @@ def _notas(disciplina_escolhida, disciplinas):
                 if n3 == None and n4 == None:
                     if n2 == "nota não lançada":
                         n2 = 0
-                        n1.replace(",", ".")
+                        n1 = n1.replace(",", ".")
                         an = (float(n1) + n2)
                         ps = 28 - an
                         approved = "Você já foi aprovado na disciplina" if an >= 14 else f"Faltam {ps} pontos para você ser aprovado!"
@@ -158,7 +158,7 @@ Média final: {md}
                     if n4 == "nota não lançada":
                         n4 = 0
                         for i in [n1, n2, n3]:
-                            i.replace(",", ".")
+                            i = i.replace(",", ".")
                         an = (float(n1) + float(n2) + float(n3) + n4)
                         ps = 28 - an
                         approved = "Você já foi aprovado na disciplina" if an >= 28 else f"Faltam {ps} pontos para você ser aprovado!"
