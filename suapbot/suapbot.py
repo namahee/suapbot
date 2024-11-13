@@ -2,11 +2,9 @@ import requests
 from bs4 import BeautifulSoup as bs
 
 from functools import partial, wraps
-from pyrogram import filters
 
 from plugins.sql.sql import *
 
-cmd = partial(filters.command, prefixes=list("/"))
 
 def _login(username, senha):
 	with requests.Session() as session:
@@ -54,7 +52,7 @@ def _notas(disciplina_escolhida, disciplinas):
 		for i in nota:
 	   		if disciplina_escolhida in i:
 	   			status = nota.parent.find("td", {"headers": "th_situacao"}).text
-	   			total_aulas = nota.parent.find("td", {"headers": "th_total_aulas"}).text
+				total_aulas = nota.parent.find("td", {"headers": "th_total_aulas"}).text
 	   			aulas_dadas = nota.parent.find("td", {"headers": "th_ch"}).text
 	   			faltas = nota.parent.find("td", {"headers": "th_total_faltas"}).text
 	   			f1 = nota.parent.find("td", {"headers": "th_n1f"}).text
@@ -129,7 +127,6 @@ def _notas(disciplina_escolhida, disciplinas):
 	   						n4 = nota.parent.find("td", {"headers": "th_n4n"}).text
 	   			else:
 	   				n4 = None
-	   			print(n1,n2,n3,n4)
 	   			if n3 == None and n4 == None:
 	   				boletim = f"""
 `Disciplina: {disciplina_escolhida.strip()}
