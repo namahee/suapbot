@@ -133,8 +133,8 @@ def _notas(disciplina_escolhida, disciplinas):
 	   			else:
 	   				n4 = None
 	   			print(n1,n2,n3,n4)
-	   			if n3 == None and n4 == None:
-					if n2 == "nota não lançada" or n2 is None:
+				if n3 == None and n4 == None:
+					if n2 == "nota não lançada" or n2 == None:
 						n2 = 0
 						if (n1 + n2) >= 14:
 							approved = "Você já está aprovado na disciplina!"
