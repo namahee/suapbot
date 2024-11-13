@@ -134,6 +134,12 @@ def _notas(disciplina_escolhida, disciplinas):
 	   				n4 = None
 	   			print(n1,n2,n3,n4)
 	   			if n3 == None and n4 == None:
+					if n2 == "nota não lançada" or n2 is None:
+						n2 = 0
+						if (n1 + n2) >= 14:
+							approved = "Você já está aprovado na disciplina!"
+						else:
+							approved = f"Faltam **{14 - (n1 + n2)}** pontos pra você ser aprovado!"
 	   				boletim = f"""
 `Disciplina: {disciplina_escolhida.strip()}
 	   			
@@ -151,8 +157,15 @@ Faltas: {f1}
 Nota: {n2}
 Faltas: {f2}
 
-Média final: {md}`"""
+Média final: {md}
+{approved}`"""
 	   			else:
+					if n4 == "nota não lançada" or n4 is None:
+						n4 = 0
+						if (n1 + n2 + n3 + n4) >= 28:
+							approved = "Você já está aprovado na disciplina!"
+						else:
+							approved = f"Faltam **{28 - (n1 + n2 + n3 + n4)}** pontos pra você ser aprovado na disciplina!"
 	   				boletim = f"""
 `Disciplina: {disciplina_escolhida.strip()}
 	   			
@@ -178,7 +191,8 @@ Faltas: {f3}
 Nota: {n4}
 Faltas: {f4}
 
-Média final: {md}`"""
+Média final: {md}
+{approved}`"""
 	   			print(f"AQUI: {boletim}")
 	   			return boletim
 	   			
