@@ -1,8 +1,8 @@
 from .client import b
 from fastapi import FastAPI
 
+app = FastAPI()
 if __name__ == "__main__":
-	app = FastAPI()
 	@app.on_event("startup")
 	async def start_bot():
 	    print("Iniciando o bot...")
