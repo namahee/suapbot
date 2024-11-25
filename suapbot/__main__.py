@@ -9,12 +9,7 @@ async def start_bot():
     global s
     s = True
     print("Iniciando o bot...")
-    await b.start()
-
-@app.on_event("shutdown")
-async def stop_bot():
-    print("Parando o bot...")
-    await b.stop()
+    await b.run()
 
 @app.get("/")
 def read_root():
