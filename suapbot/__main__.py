@@ -17,4 +17,5 @@ def read_root():
 
 @app.get("/s")
 def ss():
+    b.run()
     return {"status": s}
