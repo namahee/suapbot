@@ -1,4 +1,4 @@
-from client import b
+from .client import b
 from fastapi import FastAPI
 
 if __name__ == "__main__":
