@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "builds": [
+    {"src": "suapbot/__main__.py", "use": "@vercel/python"}
+  ],
+  "routes": [
+    {"src": "/(.*)", "dest": "suapbot/__main__.py"}
+  ]
+}
