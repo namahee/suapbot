@@ -6,6 +6,7 @@ s = False
 
 @app.on_event("startup")
 async def start_bot():
+    global s
     s = True
     print("Iniciando o bot...")
     await b.start()
